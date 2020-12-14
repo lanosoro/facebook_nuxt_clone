@@ -139,7 +139,7 @@
      <v-layout row>
         <v-avatar
               class="mt-n15 ml-6"
-              size="188"
+              size="148"
               color="white"
               style="border:5px solid #fff;"
             >
@@ -150,7 +150,7 @@
     ></v-img>
               
             </v-avatar>
-           <v-flex> <h5  style="color:black" class="pl-12 pt-0 mt-8 ">John Dow</h5>
+           <v-flex> <h5  style="color:black" class="pl-12 pt-0 mt-8 ">Jon Dow</h5>
            <v-icon class="pl-16 pt-n3 ml-16 mt-2" color="blue lighten-2">
               mdi-check-circle
             </v-icon></v-flex>
@@ -256,10 +256,59 @@
       </v-icon>
       </v-avatar>
       <h4 class="mt-4 ml-6" style="color:black;">Photos</h4>
+      
+       <a href="" class="ml-16 pl-14 mt-4" style="font-weight:bold; text-decoration:none;">see all</a>
           </v-layout>
+          <v-row class="ml-n1 mr-n12">
+            <v-col cols="2" sm="4" class="mr-n7">
+              <v-sheet
+              class="ml-2 rounded-tl-lg"
+              min-height="80"
+              color="#3b5998">
+
+              </v-sheet>
+              <v-sheet
+              class="ml-2 mt-1 rounded-bl-lg"
+              min-height="80"
+              color="#3b5998">
+
+              </v-sheet>
+              
+            </v-col>
+            <v-col cols="2" sm="4">
+              <v-sheet
+              class="ml-2"
+              min-height="80"
+              color="#3b5998">
+
+              </v-sheet>
+              <v-sheet
+              class="ml-2 mt-1"
+              min-height="80"
+              color="#3b5998">
+
+              </v-sheet>
+              
+            </v-col>
+            <v-col cols="2" sm="4" class="ml-n7" >
+              <v-sheet
+              class="ml-2 rounded-tr-lg"
+              min-height="80"
+              color="#3b5998">
+
+              </v-sheet>
+              <v-sheet
+              class="ml-2 mt-1 rounded-br-lg"
+              min-height="80"
+              color="#3b5998">
+
+              </v-sheet>
+              
+            </v-col>
+          </v-row>
             </v-sheet>
                <v-sheet
-              class="mt-3"
+              class="mt-3 "
               min-height="250"
               color="white"
             >
@@ -279,16 +328,45 @@
           sm="7">
             <v-sheet
             
-              min-height="150"
+              min-height="100"
               color="white"
             >
+            <v-avatar
+        class="hidden-sm-and-down ml-4 mt-4"
+        size="32"
+        
+      >
+      <v-img
+      src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"
+      :width="width"
+      
+    ></v-img>
+      </v-avatar>
               
             </v-sheet>
               <v-sheet
               class="mt-3"
-              min-height="550"
+              min-height="600"
               color="white"
             >
+              <v-layout row>
+                  <v-avatar
+        class="hidden-sm-and-down ml-4 mt-4  "
+        size="32"
+        
+      >
+      <v-img
+      src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"
+      :width="width"
+      
+    ></v-img>
+      </v-avatar>
+      <h5  style="color:black" class="pl-4 pt-0 mt-6">Jon Dow</h5>
+              </v-layout>
+              <p style="color:black;" class="pa-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit.voluptatem odit illum ipsa quia repellendus eum cum, vero vel iste eligendi!</p>
+            <v-sheet class="" min-height="300" color="#3b5998"> 
+
+            </v-sheet>
               
             </v-sheet>
           
