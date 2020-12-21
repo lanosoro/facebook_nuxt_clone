@@ -37,7 +37,17 @@ line-height: 48px;" >
     padding:4%; text-decoration:none;"><a href="#">forgotten password?</a></span>
     <v-divider></v-divider>
    <v-flex column>
-     <popup/>
+     <v-btn  primary large slot="activator"  style="background-color:#31b816;
+              color:#fff;
+              margin: 0;
+              position: absolute;
+              top: 85%;
+              left: 50%;
+              transform: translate(-50%, -50%); 
+              text-transform: capitalize;
+              ">
+            Create New Acccount
+          </v-btn>
    </v-flex>
         </v-form>
         <p  style=" 
@@ -76,9 +86,7 @@ line-height: 48px;" >
         <v-card flat tile class="white lighten-1 #ccd0d5--text text-center pt-0" id="footer_content">
           <v-card-text>
             <v-btn v-for="icon in icons" :key="icon" class="mx-4 white--text" icon>
-            <v-icon size="24px">
-              {{ icon }}
-            </v-icon>
+            
           </v-btn>
         </v-card-text>
        
@@ -160,7 +168,7 @@ line-height: 48px;" >
   </v-footer>
        </v-col>
      </v-row>
-     <div id="example">{{ message }}</div>
+     
    
 
   </v-container>
@@ -168,12 +176,15 @@ line-height: 48px;" >
 </template>
 
 <script>
-import popup from '../components/popup.vue'
+import fetch from 'isomorphic-fetch'
+
 
 export default {
-  components: { popup },
-    name: 'loginweb',
-
+  
+    name: 'login',
+    async assyncdata(){
+      
+    },
     data: () => ({
       dialogue:false
      

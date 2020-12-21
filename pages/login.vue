@@ -13,21 +13,21 @@
              <p style="display:inline; font-size:27px;"> Facebook helps you connect and share <br> with the people in your life.</p>
         </div>
 
-         <v-card elevation="8" width="396px" height="390.35px"  class="mx-auto mt-10% mb" style="position: absolute;
+         <v-card elevation="8" width="396px" height="390.35px"   @submit.prevent="logged" class="mx-auto mt-10% mb" style="position: absolute;
     top: 20%;
     right: 20%;
     margin-top: -50px;
     margin-left: -50px;
     border-radius:10px;" >
       <v-card-text>
-        <v-form>
+        <v-form >
           <v-text-field  single-line aria-required="red" style="color:#f0f2f5;"
-            outlined label="Email adress or Phone number" />
+            outlined label="Email adress or Phone number" v-model="email" />
           <v-text-field single-line
-            outlined label="Password" type="password"  />
-          <v-btn primary large block  style="background-color:#1877f2; color:#fff; text-transform: capitalize; font-size: 20px;
-line-height: 48px;" >
-           <strong>log in</strong> 
+            outlined v-model="password" type="password" placeholder="Password"  />
+          <v-btn primary large block type="submit" @click="logged" style="background-color:#1877f2; color:#fff; text-transform: capitalize; font-size: 20px;
+            line-height: 48px;" >
+           log in 
           </v-btn>
           <v-spacer ></v-spacer>
           <v-spacer></v-spacer>
@@ -37,9 +37,19 @@ line-height: 48px;" >
     padding:4%; text-decoration:none;"><a href="#">forgotten password?</a></span>
     <v-divider></v-divider>
    <v-flex column>
-     <popup/>
+     <v-btn  primary large slot="activator"  style="background-color:#31b816;
+              color:#fff;
+              margin: 0;
+              position: absolute;
+              top: 85%;
+              left: 50%;
+              transform: translate(-50%, -50%); 
+              text-transform: capitalize;
+              ">
+            Create New Acccount
+          </v-btn>
    </v-flex>
-        </v-form>
+        </v-form > 
         <p  style=" 
               min-width:360px;
               display:inline;
@@ -73,15 +83,7 @@ line-height: 48px;" >
 
   } " class="justify-center">
       
-        <v-card flat tile class="white lighten-1 #ccd0d5--text text-center pt-0" id="footer_content">
-          <v-card-text>
-            <v-btn v-for="icon in icons" :key="icon" class="mx-4 white--text" icon>
-            <v-icon size="24px">
-              {{ icon }}
-            </v-icon>
-          </v-btn>
-        </v-card-text>
-       
+            
       <v-card-text class="#ccd0d5--text pt-0 " style="width:100%; ; " >
         <ul id="horizontalist" class="justify-start ma-0" style="list-style-type:none; text-align:center; font-size:12px; ">
         <li><a href="">English</a>  </li> <li><a href="">kiswahili</a> </li> <li><a href=""></a> </li> <li><a href="#">Español
@@ -111,7 +113,7 @@ line-height: 48px;" >
       </v-card-text>
       <v-divider></v-divider>
 
-       <p style="text-align:center;">  <ul class="b">
+         <ul class="b">
            <li><a href="">Signup</a></li>
            <li><a href="">Login</a></li>
            <li><a href="">Messenger</a></li>
@@ -144,7 +146,7 @@ line-height: 48px;" >
        Facebook © {{ new Date().getFullYear() }}
       </v-card-text>
 
-           </ul>   </p>
+           </ul>   
   
       
       <div class="text-xs-left" >
@@ -153,14 +155,14 @@ line-height: 48px;" >
       </v-card-text>
       </div>
      
-    </v-card>
+    
   
   
   
   </v-footer>
        </v-col>
      </v-row>
-     <div id="example">{{ message }}</div>
+     
    
 
   </v-container>
@@ -168,24 +170,36 @@ line-height: 48px;" >
 </template>
 
 <script>
-import popup from '../components/popup.vue'
-
+import "firebase/firestore";
+import "firebase/auth";
+import {firebase} from '@firebase/app'
 export default {
-  components: { popup },
-    name: 'loginweb',
-
-    data: () => ({
-      dialogue:false
-     
-    
-    }),
+  data() {
+    return {
+      email: "",
+      password: "",
+      
+    };
+  },
+  methods: {
+    logged() {
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(this.email, this.password)
+        .then(() => {
+          var user = firebase.auth().currentUser;
+          console.log("firebase");
+          this.$router.replace({path:'/Dashboard'});
+          
+          
+        })
+        
+    }
   }
+};
 
 </script>
-<script>
-export default {
- 
-}
+
 </script>
 
 <style  scoped>

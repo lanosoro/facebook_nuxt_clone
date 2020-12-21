@@ -1,9 +1,19 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
-  mode:'universal',
+  
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
-  ssr: true,
+  auth: {
+    persistence: 'local', // default
+    initialize: {
+      onAuthStateChangedMutation: 'ON_AUTH_STATE_CHANGED_MUTATION',
+      onAuthStateChangedAction: 'onAuthStateChangedAction',
+      subscribeManually: false
+    },
+    ssr: false, // default
+    emulatorPort: 9099,
+    emulatorHost: 'http://localhost',
+  },
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
@@ -25,6 +35,7 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
+    '~/plugins/firebase'
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -44,6 +55,7 @@ export default {
   router: {
     middleware:['tablet']
   },
+  
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
