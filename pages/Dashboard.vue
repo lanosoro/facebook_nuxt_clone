@@ -98,9 +98,22 @@
         color="grey lighten-1 shrink"
         size="32"
       >
-      <v-icon color="black">
-        mdi-menu-down
-      </v-icon>
+     <v-menu-offset>
+       <v-btn slot="ativatior" class="grey lighten-1">
+         <v-icon>
+           mdi-menu-down
+         </v-icon>
+         
+       </v-btn>
+       <v-list>
+         <v-list-tile
+         v-for="link in links"
+         :key="link.text" router :to="link.route"
+         >
+          <v-list-tile-title>{{link.text}}</v-list-tile-title>
+         </v-list-tile>
+       </v-list>
+       </v-menu-offset>>
       
       </v-avatar>
     </v-app-bar>
@@ -171,9 +184,9 @@
            color="#3b5998 lighten-2"
           class="ml-"
           v-for="link in links"
-          :key="link"
+          :key="link.text" router :to="link.route"
         >
-          {{ link }}
+          {{ link.text }}
         </v-tab>
         
       </v-layout>
@@ -469,12 +482,13 @@
   export default {
     data: () => ({
       links: [
-        'Home',
-        'Photos',
-        'About',
-        'Instagram',
-        'More'
+        {text:'Home', route:'/'},
+        {text:'Photos', route:'photos'},
+        {text:'About',route:"/about"},
+        {text:'Instagram',route:"whatsapp"},
+        {text:'More'},{text:'log out',route:'/'}
       ],
+     
     }),
   }
 </script>

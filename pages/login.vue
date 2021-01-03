@@ -19,13 +19,13 @@
     margin-top: -50px;
     margin-left: -50px;
     border-radius:10px;" >
-      <v-card-text>
-        <v-form >
+      <v-card-text @submit.prevent="logged">
+        <v-form @submit.prevent="logged">
           <v-text-field  single-line aria-required="red" style="color:#f0f2f5;"
             outlined label="Email adress or Phone number" v-model="email" />
           <v-text-field single-line
             outlined v-model="password" type="password" placeholder="Password"  />
-          <v-btn primary large block type="submit" @click="logged" style="background-color:#1877f2; color:#fff; text-transform: capitalize; font-size: 20px;
+          <v-btn primary large block type="submit" v-on:click="logged" style="background-color:#1877f2; color:#fff; text-transform: capitalize; font-size: 20px;
             line-height: 48px;" >
            log in 
           </v-btn>
@@ -72,7 +72,7 @@
       </v-col>
       </v-row>    
      <v-row style="text-align:left; background:white; width:100%; height:212px; margin-bottom:0; position:absolute; top:900px;">  
-    <v-col id="footer_col">
+    <v-col class="mr-3" id="footer_col">
         <v-footer style="margin-bottom:0; position:absolute; background-color:white; width:900px; left:20%; @media (min-width: 900px){
   
     max-width: 100%;
@@ -84,7 +84,6 @@
   } " class="justify-center">
       
             
-      <v-card-text class="#ccd0d5--text pt-0 " style="width:100%; ; " >
         <ul id="horizontalist" class="justify-start ma-0" style="list-style-type:none; text-align:center; font-size:12px; ">
         <li><a href="">English</a>  </li> <li><a href="">kiswahili</a> </li> <li><a href=""></a> </li> <li><a href="#">Español
                       </a> </li> <li><a href="">Português (Brasil)
@@ -110,7 +109,7 @@
           
          
         </ul>
-      </v-card-text>
+
       <v-divider></v-divider>
 
          <ul class="b">
@@ -142,17 +141,18 @@
            <li><a href="">facebookPay</a></li>
            <li><a href="">marketplace</a></li>
            <li><a href="">groups</a></li><br>
-              <v-card-text class="#737373--text pl-0" style="padding: 30px 0px; font-size:12px; left:0; color:transparent;" >
+           <li><a href="">l</a></li><br>
+              <div  class="#737373--text pl-0" style="padding: 30px 0px; font-size:12px; left:0; color:transparent;" >
        Facebook © {{ new Date().getFullYear() }}
-      </v-card-text>
+      </div>
 
            </ul>   
   
       
       <div class="text-xs-left" >
-         <v-card-text class="#737373--text pl-0" style="margin-bottom:30px; font-size:12px; left:0; color:#737373;" >
+         <div class="#737373--text pl-0" style="margin-bottom:30px; font-size:12px; left:0; color:#737373;" >
        Facebook © {{ new Date().getFullYear() }}
-      </v-card-text>
+         </div>
       </div>
      
     
@@ -172,7 +172,7 @@
 <script>
 import "firebase/firestore";
 import "firebase/auth";
-import {firebase} from '@firebase/app'
+import firebase from 'firebase'
 export default {
   data() {
     return {
@@ -187,7 +187,7 @@ export default {
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
         .then(() => {
-          var user = firebase.auth().currentUser;
+
           console.log("firebase");
           this.$router.replace({path:'/Dashboard'});
           

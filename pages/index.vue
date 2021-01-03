@@ -84,11 +84,11 @@ line-height: 48px;" >
   } " class="justify-center">
       
         <v-card flat tile class="white lighten-1 #ccd0d5--text text-center pt-0" id="footer_content">
-          <v-card-text>
+          <!-- <v-card-text>
             <v-btn v-for="icon in icons" :key="icon" class="mx-4 white--text" icon>
             
           </v-btn>
-        </v-card-text>
+        </v-card-text> -->
        
       <v-card-text class="#ccd0d5--text pt-0 " style="width:100%; ; " >
         <ul id="horizontalist" class="justify-start ma-0" style="list-style-type:none; text-align:center; font-size:12px; ">
@@ -176,7 +176,7 @@ line-height: 48px;" >
 </template>
 
 <script>
-import fetch from 'isomorphic-fetch'
+/* import fetch from 'isomorphic-fetch' */
 
 
 export default {

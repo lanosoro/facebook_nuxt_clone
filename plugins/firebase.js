@@ -1,4 +1,4 @@
-import firebase from 'firebase/app'
+import firebase from 'firebase'
 import'firebase/auth'
 
 // Your web app's Firebase configuration
@@ -18,5 +18,5 @@ if(!firebase.apps.length){
   app=firebase.initializeApp(firebaseConfig);
 }
 
-export default firebase;
+
 
